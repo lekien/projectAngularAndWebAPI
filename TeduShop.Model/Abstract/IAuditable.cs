@@ -17,7 +17,7 @@ namespace TeduShop.Model
         string MetaKeyword { get; set; }
         string MetaDescription { get; set; }
         string MetaTittle { get; set; }
-
+    
         bool Status { get; set; }
     }
 }

@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 namespace TeduShop.Model
 {
     [Table("Posts")]
-    public class Post
+    public class Post : Auditable
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
@@ -41,5 +41,8 @@ namespace TeduShop.Model
 
         [ForeignKey("CategoryID")]
         public virtual PostCategory PostCategory { set; get; }
+
+        [ForeignKey("CategoryID")]
+        public virtual IEnumerable<PostTag> PostTags { set; get; }
     }
 }

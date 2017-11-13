@@ -57,7 +57,7 @@
                                 <span ng-class="{'badge bg-red': item.Status == false, 'badge bg-green': item.Status == true}" class="badge bg-red">{{item.Status == true ? "Hoạt động" : "Khóa"}}</span>
                             </td>
                             <td>
-                                <button class="btn btn-sm btn-primary" style="margin-right: 3px" title="Sửa"><i class="fa fa-pencil"></i></button>
+                                <button class="btn btn-sm btn-primary" style="margin-right: 3px" title="Sửa" ui-sref="edit_product_category({id:item.ID})"><i class="fa fa-pencil"></i></button>
                                 <button class="btn btn-sm btn-danger" title="Xóa"><i class="fa fa-trash-o"></i></button>
                             </td>
                         </tr>

@@ -24,7 +24,9 @@
                 <div class="form-group">
                     <label for="inputEmail3" class="col-sm-2 control-label">Tên danh mục</label>
                     <div class="col-sm-8">
-                        <input type="text" class="form-control" name="name" ng-change="GetSeoTitle()" ng-model="productCategory.Name">
+                        <input type="text" class="form-control" name="name" ng-maxlength="256" required ng-change="GetSeoTitle()" ng-model="productCategory.Name">
+                        <span ng-show="frmAddProductCategory.name.$invalid" class="text-danger">Bạn chưa nhập tên danh mục</span><br />
+                        <span ng-show="frmAddProductCategory.name.$error.maxlength" class="text-danger">Tên danh mục chỉ nhập 256 ký tự</span>
                     </div>
                 </div>
                 <div class="form-group">
@@ -36,7 +38,8 @@
                 <div class="form-group">
                     <label for="inputEmail3" class="col-sm-2 control-label">Mô tả ngắn</label>
                     <div class="col-sm-8">
-                        <input type="text" class="form-control" name="description" ng-model="productCategory.Description">
+                        <input type="text" class="form-control" ng-maxlength="500" name="description" ng-model="productCategory.Description">
+                        <span ng-show="frmAddProductCategory.description.$error.maxlength" class="text-danger">Mô tả ngắn chỉ nhập 500 ký tự</span>
                     </div>
                 </div>
                 <div class="form-group">
@@ -51,7 +54,8 @@
                 <div class="form-group">
                     <label for="inputEmail3" class="col-sm-2 control-label">Thứ tự</label>
                     <div class="col-sm-8">
-                        <input type="number" class="form-control" name="displayOrder" ng-model="productCategory.DisplayOrder">
+                        <input type="number" class="form-control" name="displayOrder" required ng-model="productCategory.DisplayOrder" min="1">
+                        <span ng-show="frmAddProductCategory.displayOrder.$invalid" class="text-danger">Bạn chưa nhập thứ tự</span>
                     </div>
                 </div>
                 <div class="form-group">
@@ -82,7 +86,8 @@
                     <div class="col-sm-offset-2 col-sm-8">
                         <div class="checkbox">
                             <label>
-                                <input type="checkbox" name="status" ng-model="productCategory.Status" ng-checked="productCategory.Status"> Kích hoạt
+                                <input type="checkbox" name="status" ng-model="productCategory.Status" required ng-checked="productCategory.Status"> Kích hoạt
+                                <span ng-show="frmAddProductCategory.status.$invalid" class="text-danger">Bạn chưa nhập trạng thái</span>
                             </label>
                         </div>
                         <div class="checkbox">
@@ -95,7 +100,7 @@
             </div><!-- /.box-body -->
             <div class="box-footer">
                 <button ui-sref="product_categories" class="btn btn-default">Hủy</button>
-                <button type="submit" class="btn btn-success">Lưu</button>
+                <button type="submit" class="btn btn-success" ng-disabled="frmAddProductCategory.$invalid">Lưu</button>
             </div><!-- /.box-footer -->
         </form>
     </div><!-- /.box -->
